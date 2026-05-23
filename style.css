@@ -1,0 +1,95 @@
+/* ===================================
+   CSS Grid Practice File
+   =================================== */
+
+body {
+  font-family: sans-serif;
+  padding: 20px;
+  background: #f0f0f0;
+}
+
+h2 { color: #333; }
+
+.layout {
+  background: #ddd;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: 80px 300px 60px;
+  grid-template-areas: 
+  "header header"
+  "sidebar main"
+  "footer footer"
+  
+}
+
+.box {
+  background: #4f86c6;
+  color: white;
+  padding: 20px;
+  margin: 5px;
+  text-align: center;
+  font-size: 18px;
+  border-radius: 4px;
+}
+
+.header {grid-area: header}
+
+.footer {grid-area: footer}
+
+.sidebar {grid-area: sidebar}
+
+.main {grid-area: main}
+
+.line-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; /* 3 equal columns */
+  grid-template-rows: 100px 100px;    /* 2 rows */
+  background: #ddd;
+  padding: 10px;
+  margin-top: 30px;
+}
+
+/* A spans all 3 columns: from line 1 to line 4 */ /*
+.a { grid-column: 1 / 4; }*/
+.a {grid-column: span 3}/*this is like 1 to 4*/
+
+/* B takes just column 1 */ /*
+.b { grid-column: 1 / 2; }*/
+.b {grid-column: span 2}/*this is like 1 to 3*/
+
+/* C jumps to column 3, row 2 */
+.c { grid-column: 3 / 4; grid-row: 2 / 3; }
+
+.align-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 150px 150px;
+  background: #ddd;
+  padding: 10px;
+  margin-top: 30px;
+
+  align-items: center;   /* vertically center all items */
+  justify-items: center; /* horizontally center all items */
+}
+
+/* Override just box 3 */
+.self-box {
+  align-self: end;
+  justify-self: start;
+}
+
+.layout {
+  /* gap: 10px;  */
+   gap: 20px 5px; /* first value is the space between the rows vertical, the second value is the space between the colums horizontal*/
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 16px;
+  background: #ddd;
+  padding: 10px;
+  margin-top: 30px;
+}
+
